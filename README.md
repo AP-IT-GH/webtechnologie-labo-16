@@ -8,321 +8,205 @@ webtechnologie/
 │  ├─ oefening-01/
 │  │  ├─ index.html
 │  │  ├─ images/
-│  │  │  ├─ image-1.jpg 
-│  │  │  └─ image-n.jpg 
+│  │  │  ├─ image-1.jpg
+│  │  │  └─ image-n.jpg
 │  │  ├─ css/
 │  │  │   ├─ reset.css
 │  │  │   └─ style.css
-│  │  ├─ data/
-│  │  │   ├─ datafile-1.json
-│  │  │   └─ datafile-2.json
 │  │  └─ js/
 │  │     └─ script.js
 │  ├─ oefening-02/
 │  └─ oefening-n/
 ├─ labo-02/
-└─ labo-n/      
+└─ labo-n/
 ```
 
 - Gebruik steeds JS modules om globale variabelen te vermijden (`<script type="module" src="./path/to/script.js" defer></script>`)
 - Zet je Javascript file steeds in strict mode (`"use strict"`);
 - Volg de [Coding Guidelines](https://apwt.gitbook.io/webtechnologie/coding-guidelines)
+- Voor invoer kun je hardcoded variabelen of de `prompt()` functie gebruiken.
+- Print resultaten uit in de console.
 
-## oefening 1: tekst plaatsen
+## Oefeningen callbacks
 
-### leerdoelen
+### oefening 1: bereken de som en het product
 
-* een HTML-element selecteren o.b.v. id
-* de inhoud van een HTML-element wijzigen
+#### leerdoelen
 
-### functionele analyse 
+* kennismaken met het gebruik van callbacks in JavaScript
+* begrijpen hoe functies als callback kunnen worden gebruikt
 
-Jouw programma gaat de titel op een website aanpassen naar de inhoud van een variabele.
+#### functionele analyse
 
-### technische analyse 
+Schrijf een JavaScript-functie genaamd `calculate` die twee getallen en een callback-functie accepteert. Deze callback-functie moet de som van de twee getallen afdrukken.
 
-In jouw HTML voorzie je een h1-element met als tekst "Hello world!".
+#### technische analyse
 
-Plaats in jouw code de tekst "Welkom op onze website" in een `const`. Gebruik deze `const` om de `h1` op de website aan te passen.
+1. Schrijf een functie genaamd `calculate` die twee parameters (getallen) en een derde parameter (callback-functie) accepteert.
+2. In de functie `calculate`, bereken de som van de twee getallen.
+3. Roep de callback-functie aan met de berekende som als argument.
+4. Lees in deze callback-functie het resultaat uit in de console.
 
-### voorbeeldinteractie
+#### voorbeeldinteractie
+![voorbeeldinteractie](./voorbeeldinteractie-calculate.avif)
 
-![voorbeeldinteractie](./voorbeeldinteractie-tekst-plaatsen.avif)
+### oefening 2: string manipulatie
 
-## Oefening 2: Attributen lezen
+#### leerdoelen
 
-### leerdoelen
+* toepassen van het concept van callbacks bij het manipuleren van strings
+* begrijpen hoe functies als argumenten kunnen worden doorgegeven.
 
-* Een HTML-element selecteren op basis van id
-* Attributen van een HTML-element lezen
+#### functionele analyse
 
-### functionele analyse 
+Schrijf een JavaScript-functie genaamd `modifyString` die een string en een callback-functie accepteert. De callback-functie moet de lengte van de string afdrukken.
 
-Lees de waarde van het "src"-attribuut van een afbeelding en toon deze in de console.
+#### technische analyse
 
-### technische analyse
+1. Schrijf een functie genaamd `modifyString` die een string en een callback-functie accepteert.
+2. In de functie `modifyString`, bereken de lengte van de string.
+3. Roep de callback-functie aan met de lengte van de string als argument.
+4. Lees het resultaat uit in de console.
 
-Voeg in jouw HTML een img-element toe met een id, bijvoorbeeld "myImage", en een standaardbron, bijvoorbeeld "afbeelding.png".
+#### voorbeeldinteractie
 
-In jouw JavaScript-code selecteer je dit img-element op basis van het id "myImage" en lees je de waarde van het "src"-attribuut. Toon deze waarde vervolgens in de console.
+![voorbeeldinteractie](./voorbeeldinteractie-modifystring.avif)
 
-### voorbeeldinteractie
+### oefening 3: rekenmachine
 
-![voorbeeldinteractie](./voorbeeldinteractie-attributen-lezen.avif)
+#### leerdoelen
 
-## oefening 3: attributen wijzigen
+* begrijpen hoe functies als returnwaarde kunnen worden gebruikt.
+* toepassen van callbacks bij het maken van een eenvoudige rekenmachine.
 
-### leerdoelen
+#### functionele analyse
 
-* een HTML-element selecteren op basis van tag
-* attributen van een HTML-element wijzigen
+Schrijf een factory-functie genaamd `createCalculator` die een wiskundige bewerking ('add' of 'multiply') accepteert en een functie retourneert.
 
-### functionele analyse 
+#### technische analyse
 
-Je moet de bron van een afbeelding wijzigen op basis van een variabele.
+1. **Maak een functie genaamd `createCalculator`**
+   Deze functie accepteert één parameter: een string genaamd `bewerking`.
 
-### technische analyse 
+2. **Gebruik een `if`-statement binnen `createCalculator`**
+   Controleer of de waarde van `bewerking` gelijk is aan `'add'` of `'multiply'`.
 
-In jouw HTML heb je een img-element met een id "myImage" en een standaardbron, bijvoorbeeld "afbeelding.png".
+3. **Retourneer een functie op basis van de bewerking**
+   De geretourneerde functie moet:
+    - Twee getallen **optellen** of **vermenigvuldigen**, afhankelijk van de opgegeven bewerking.
+    - Daarna een **callback-functie** aanroepen met het resultaat.
 
-Maak in jouw JavaScript-code een variabele met de naam `newSource` en wijs hieraan een nieuwe afbeeldings-URL toe.
+4. **De geretourneerde functie accepteert drie parameters:**
+    - `getal1`: het eerste getal
+    - `getal2`: het tweede getal
+    - `callback`: een functie die wordt aangeroepen met het resultaat
 
-Selecteer het img-element op de pagina op basis van het id "myImage" en wijzig het attribuut "src" naar de waarde van de variabele `newSource`. Zo moet de afbeelding op de website veranderen afhankelijk van de nieuwe bron die je hebt opgegeven.
+5. **Maak een aparte functie genaamd `printToConsole`**
+   Deze functie accepteert één argument en logt dit naar de console.
 
-### voorbeeldinteractie
-![voorbeeldinteractie](./voorbeeldinteractie-attributen-wijzigen.avif)
+6. **Gebruik de `createCalculator` functie**
+   Roep de geretourneerde functie aan met twee getallen en de `printToConsole` callback.
 
-## oefening 4: stijlen aanpassen
+#### voorbeeldinteractie
 
-### leerdoelen
+![voorbeeldinteractie](./voorbeeldinteractie-rekenmachine.avif)
 
-* een HTML-element selecteren op basis van id
-* stijlen van een HTML-element wijzigen
+## Oefeningen array methodes
 
-### functionele analyse 
+### oefening 4: sorteren van strings
 
-Pas de tekstkleur van een alinea aan op basis van een variabele.
+#### leerdoelen
 
-### technische analyse 
+* kennismaken met het sorteren van arrays in JavaScript.
+* begrijpen hoe de sort-functie werkt met strings.
 
-Voeg in jouw HTML een paar p-elementen toe met verschillende tekstinhoud en verschillende klasses, bijvoorbeeld `.red`.
+#### functionele analyse
 
-Maak een variabele met de naam `red` en wijs hieraan een kleurwaarde toe, bijvoorbeeld "rood".
+Schrijf een JavaScript-functie genaamd `sortStrings` die een array van strings accepteert. De functie moet de array alfabetisch sorteren.
 
-Selecteer de p-elementen op de pagina op basis van de klasse en pas de tekstkleur aan naar de waarde van de variabele. Hierdoor moeten de paragrafen een nieuwe tekstkleur hebben.
+#### technische analyse
 
-### voorbeeldinteractie
+1. Schrijf een functie genaamd `sortStrings` die één parameter (array van strings) accepteert.
+2. Gebruik de ingebouwde sort-functie van JavaScript om de array te sorteren.
+3. Lees het resultaat uit in de console.
 
-![voorbeeldinteractie](./voorbeeldinteractie-stijl-aanpassen.avif)
+### oefening 5: sorteren van objecten
 
-## oefening 5: elementen verwijderen
+#### leerdoelen
 
-### leerdoelen
+* kennismaken met het sorteren van arrays met objecten op basis van een specifiek attribuut.
+* begrijpen hoe de sort-functie werkt met aangepaste vergelijkingsfuncties.
 
-* bestaande HTML-elementen verwijderen
+#### functionele analyse
 
-### functionele analyse 
+Schrijf een JavaScript-functie genaamd `sortByAttribute` die een array van objecten en een attribuutnaam accepteert. De functie moet de array van objecten sorteren op basis van het opgegeven attribuut.
 
-Verwijder een item uit een lijst.
+#### technische analyse
 
-### technische analyse 
+1. Schrijf een functie genaamd `sortByAttribute` die twee parameters accepteert: de array van objecten en de attribuutnaam om op te sorteren.
+2. Gebruik de sort-functie met een aangepaste vergelijkingsfunctie om de array van objecten te sorteren op het opgegeven attribuut.
+3. Lees het resultaat uit in de console.
 
-In jouw HTML, creëer een ongeordende lijst (ul) met enkele lijstitems (li).
+> Tip: voor deze oefening kun je er van uitgaan dat de strings die je gaat sorteren allemaal met een hoofdletter beginnen en géén accenten bevatten, zodat je dezelfde callback functie kunt gebruiken voor string en number vergelijkingen
 
-Selecteer een bestaand lijstitem (je kunt bijvoorbeeld het eerste lijstitem selecteren) en verwijder dit item uit de lijst.
+#### voorbeeldinteractie
 
-### voorbeeldinteractie
+![voorbeeldinteractie](./voorbeeldinteractie-sorteren-van-objecten.avif)
 
-![voorbeeldinteractie](./voorbeeldinteractie-element-verwijderen.avif)
+### oefening 6: filteren en verdubbelen
 
-## oefening 6: tekstinhoud lezen
+#### leerdoelen
 
-### leerdoelen
+* Gebruik van de filter- en map-functies op arrays.
+* Combinatie van verschillende array-functies in een enkele operatie.
 
-* Een HTML-element selecteren op basis van tag
-* De inhoud van een HTML-element lezen
+#### functionele analyse
 
-### functionele analyse 
+Schrijf een JavaScript-functie genaamd `filterAndDouble` die een array van getallen accepteert. De functie moet alle even getallen filteren en de overgebleven getallen verdubbelen.
 
-Lees de tekstinhoud van een paragraaf en toon deze in de console.
+#### technische analyse
 
-### technische analyse 
+1. Schrijf een functie genaamd `filterAndDouble` die een array van getallen accepteert.
+2. Gebruik de filter-functie om alleen even getallen te behouden.
+3. Gebruik de map-functie om de overgebleven getallen te verdubbelen.
+4. Lees het resultaat uit in de console.
 
-Voeg in jouw HTML een p-element toe met wat tekstinhoud.
+#### voorbeeldinteractie
+![voorbeeldinteractie](./voorbeeldinteractie-filteren-en-verdubbelen.avif)
 
-In jouw JavaScript-code, selecteer dit p-element op basis van de tag en lees de tekstinhoud ervan. Toon deze tekst vervolgens in de console.
+### oefening 7: reduce
 
-### voorbeeldinteractie
+#### leerdoelen
 
-![voorbeeldinteractie](./voorbeeldinteractie-tekstinhoud-lezen.avif)
+* Gebruik van de de reduce functie op arrays.
 
-## oefening 7: stijlen lezen
+#### functionele analyse
 
-### leerdoelen
+Schrijf een JavaScript-functie genaamd `calculateTotalPrice` die een array van getallen accepteert. De functie moet alle getallen met elkaar optellen.
 
-* Een HTML-element selecteren op basis van id
-* Stijlinformatie van een HTML-element lezen
+#### technische analyse
 
-### functionele analyse 
+1. Schrijf een functie genaamd `calculateTotalPrice` die een array van getallen accepteert.
+2. Gebruik de reduce functie om alle getallen in de array met elkaar op te tellen
+3. Lees het resultaat uit in de console.
 
-Lees de achtergrondkleur van een div-element met een specifieke id en toon deze in de console.
+![voorbeeldinteractie](./voorbeeldinteractie-reduce.avif)
 
-### technische analyse 
+### oefening 8: minstens twee
 
-Voeg in jouw HTML een div-element toe met een id, bijvoorbeeld `bg-grey`, en pas wat stijlen toe, zoals achtergrondkleur.
+#### leerdoelen
 
-In jouw JavaScript-code, selecteer dit div-element op basis van de id en lees de achtergrondkleur. Toon deze kleur vervolgens in de console.
+* Gebruik van callbacks en array methodes combineren.
 
-### voorbeeldinteractie
+* Schrijf een arrow functie `isOdd` die via de returnwaarde aangeeft of een getal oneven is.
+* Schrijf een arrow functie `isEven` die via de returnwaarde aangeeft of een getal even is.
+* Verzin twee andere functies die op deze manier zeggen of een getal een bepaalde eigenschap heeft.
+* Schrijf een functie genaamd `atLeastTwo` die twee argumenten aanvaardt. Het eerste argument is een array van getallen en de tweede argument is een callbackfunctie.
+* De functie `atLeastTwo` geeft true terug als en slechts als minstens twee elementen voldoen aan de meegegeven functie.
 
-![voorbeeldinteractie](./voorbeeldinteractie-stijlen-lezen.avif)
+Bijvoorbeeld:
 
-## oefening 8: elementen toevoegen
-
-### leerdoelen
-
-* Nieuwe HTML-elementen maken
-* Bestaande HTML-elementen wijzigen
-
-### functionele analyse 
-
-Voeg een nieuw item toe aan een lijst.
-
-### technische analyse 
-
-In jouw HTML, creëer een ongeordende lijst (ul) met enkele lijstitems (li).
-
-In jouw JavaScript-code, maak een nieuw li-element aan met de tekst "Nieuw Item" en voeg dit toe aan de bestaande ul. Toon het resultaat in de console.
-
-Deze oefening laat zien hoe je dynamisch nieuwe elementen aan een pagina kunt toevoegen.
-
-### voorbeeldinteractie
-![voorbeeldinteractie](./voorbeeldinteractie-elementen-toevoegen.avif)
-
-## oefening 9: eerste event afhandelen
-
-### leerdoelen
-
-* kennismaken met een event listener in JavaScript
-
-### functionele analyse
-
-Reageer op een muisklik op een knop door een bericht in de console weer te geven.
-
-### technische analyse
-
-In jouw HTML plaats je een button-element met een id, bijvoorbeeld "myAction" en wat tekst, bijvoorbeeld "Klik op mij".
-
-In jouw JavaScript-code selecteer je deze button op basis van het id en voeg je er een event listener aan toe om te reageren op het "click"-event.
-
-Wanneer de knop wordt geklikt, toon dan "er werd op mij geklikt" in de console.
-
-### voorbeeldinteractie
-![voorbeeldinteractie](./voorbeeldinteractie-eerste-event.gif)
-
-## oefening 10: reageren in DOM
-
-### leerdoelen
-
-* kennismaken met een event listener in JavaScript
-* DOM-manipulatie naar aanleiding van event
-
-### functionele analyse
-
-Reageer op een muisklik op een knop door een bericht op de website weer te geven.
-
-### technische analyse
-
-In jouw HTML plaats je een button-element met een id, bijvoorbeeld "myAction" en wat tekst, bijvoorbeeld "Klik op mij". Daaronder plaats je een p-element met een id, bijvoorbeeld "myText". Je laat de p nog leeg.
-
-In jouw JavaScript-code selecteer je deze button op basis van het id en voeg je er een event listener aan toe om te reageren op het "click"-event.
-
-Wanneer de knop wordt geklikt, toon dan "er werd op mij geklikt" in de p.
-
-### voorbeeldinteractie
-
-![voorbeeldinteractie](./voorbeeldinteractie-reageren-in-dom.gif)
-
-## oefening 11: reageren op form event
-
-### leerdoelen
-
-* form event gebruiken
-* default voorkomen
-
-### functionele analyse
-
-Wanneer een gebruiker het formulier verzendt, toon je de naam van de gebruiker op het scherm.
-
-### technische analyse
-
-Op jouw pagina staat een formulier met daarin 1 veld, nl. "voornaam".
-
-Wanneer de gebruiker het veld heeft ingevuld (tip: required) en het formulier verzendt, zal jouw code voorkomen dat het formulier verzonden wordt.
-
-Je toont de ingevulde naam van de gebruiker op het scherm in een welkomstboodschap.
-
-### voorbeeldinteractie
-
-![voorbeeldinteractie](./voorbeeldinteractie-reageren-form-event.gif)
-
-## oefening 12: reageren op invoer van gebruiker
-
-### leerdoelen
-
-* keyboard event gebruiken
-
-### functionele analyse
-
-Wanneer een gebruiker in een invoerveld typt, toon je de toetsaanslagen van de gebruiker op het scherm.
-
-### technische analyse
-
-Op jouw pagina staat een invoerveld, nl. "input".
-
-Wanneer de gebruiker iets invult, toon je de ingevulde tekst van de gebruiker op het scherm.
-
-### voorbeeldinteractie
-
-![voorbeeldinteractie](./voorbeeldinteractie-reageren-invoer-gebruiker.gif)
-
-## oefening 13: reageren op muisbeweging
-
-### leerdoelen
-
-* mouse event gebruiken
-
-### functionele analyse
-
-Je geeft de positie van de muis weer op het scherm
-
-### technische analyse
-
-Op jouw pagina staat een tekst, nl.: "Jouw muis bevindt zich op x: 150, y: 300".
-
-Telkens de gebruiker zijn muis beweegt, toon je de nieuwe coördinaten in de tekst.
-
-### voorbeeldinteractie
-
-![voorbeeldinteractie](./voorbeeldinteractie-reageren-muisbeweging.gif)
-
-## oefening 14: DOM-element toevoegen door te klikken
-
-### leerdoelen
-
-* DOM manipulatie
-* click event
-
-### functionele analyse
-
-Je voegt lijst-items toe door op een knop te drukken.
-
-### technische analyse
-
-Jouw website bestaat uit een h1 "todo-lijst" en een oplijsten van enkele to-do's.
-
-Er staat een knop onderaan de lijst. Als op deze knop geklikt wordt, zal er een to-do-item bijkomen op de lijst.
-
-### voorbeeldinteractie
-
-![voorbeeldinteractie](./voorbeeldinteractie-dom-manipulatie-na-event.gif)
+```
+console.log(atLeastTwo([2,3,4,6,8], isOdd)); // false
+console.log(atLeastTwo([2,3,4,5,6,8], isOdd)); // true
+```
