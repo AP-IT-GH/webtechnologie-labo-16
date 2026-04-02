@@ -22,7 +22,6 @@ webtechnologie/
 ```
 
 - Gebruik steeds JS modules om globale variabelen te vermijden (`<script type="module" src="./path/to/script.js"></script>`)
-- Zet je Javascript file steeds in strict mode (`"use strict"`);
 - Volg de [Coding Guidelines](https://apwt.gitbook.io/webtechnologie/coding-guidelines)
 - Voor invoer kun je hardcoded variabelen of de `prompt()` functie gebruiken.
 - Print resultaten uit in de console.
