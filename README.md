@@ -110,9 +110,28 @@ Schrijf een factory-functie genaamd `createCalculator` die een wiskundige bewerk
 
 ![voorbeeldinteractie](./voorbeeldinteractie-rekenmachine.avif)
 
+### oefening 4: minstens twee
+
+#### leerdoelen
+
+* Gebruik van callbacks en array methodes combineren.
+
+* Schrijf een arrow functie `isOdd` die via de returnwaarde aangeeft of een getal oneven is.
+* Schrijf een arrow functie `isEven` die via de returnwaarde aangeeft of een getal even is.
+* Verzin twee andere functies die op deze manier zeggen of een getal een bepaalde eigenschap heeft.
+* Schrijf een functie genaamd `atLeastTwo` die twee argumenten aanvaardt. Het eerste argument is een array van getallen en de tweede argument is een callbackfunctie.
+* De functie `atLeastTwo` geeft true terug als en slechts als minstens twee elementen voldoen aan de meegegeven functie.
+
+Bijvoorbeeld:
+
+```
+console.log(atLeastTwo([2,3,4,6,8], isOdd)); // false
+console.log(atLeastTwo([2,3,4,5,6,8], isOdd)); // true
+```
+
 ## Oefeningen array methodes
 
-### oefening 4: sorteren van strings
+### oefening 5: sorteren van strings
 
 #### leerdoelen
 
@@ -129,7 +148,7 @@ Schrijf een JavaScript-functie genaamd `sortStrings` die een array van strings a
 2. Gebruik de ingebouwde sort-functie van JavaScript om de array te sorteren.
 3. Lees het resultaat uit in de console.
 
-### oefening 5: sorteren van objecten
+### oefening 6: sorteren van objecten
 
 #### leerdoelen
 
@@ -152,7 +171,7 @@ Schrijf een JavaScript-functie genaamd `sortByAttribute` die een array van objec
 
 ![voorbeeldinteractie](./voorbeeldinteractie-sorteren-van-objecten.avif)
 
-### oefening 6: filteren en verdubbelen
+### oefening 7: filteren en verdubbelen
 
 #### leerdoelen
 
@@ -173,7 +192,7 @@ Schrijf een JavaScript-functie genaamd `filterAndDouble` die een array van getal
 #### voorbeeldinteractie
 ![voorbeeldinteractie](./voorbeeldinteractie-filteren-en-verdubbelen.avif)
 
-### oefening 7: reduce
+### oefening 8: reduce
 
 #### leerdoelen
 
@@ -190,22 +209,3 @@ Schrijf een JavaScript-functie genaamd `calculateTotalPrice` die een array van g
 3. Lees het resultaat uit in de console.
 
 ![voorbeeldinteractie](./voorbeeldinteractie-reduce.avif)
-
-### oefening 8: minstens twee
-
-#### leerdoelen
-
-* Gebruik van callbacks en array methodes combineren.
-
-* Schrijf een arrow functie `isOdd` die via de returnwaarde aangeeft of een getal oneven is.
-* Schrijf een arrow functie `isEven` die via de returnwaarde aangeeft of een getal even is.
-* Verzin twee andere functies die op deze manier zeggen of een getal een bepaalde eigenschap heeft.
-* Schrijf een functie genaamd `atLeastTwo` die twee argumenten aanvaardt. Het eerste argument is een array van getallen en de tweede argument is een callbackfunctie.
-* De functie `atLeastTwo` geeft true terug als en slechts als minstens twee elementen voldoen aan de meegegeven functie.
-
-Bijvoorbeeld:
-
-```
-console.log(atLeastTwo([2,3,4,6,8], isOdd)); // false
-console.log(atLeastTwo([2,3,4,5,6,8], isOdd)); // true
-```
